@@ -1,0 +1,28 @@
+//   if (playerSelection === "Rock" && computerChoice === "Rock"){
+    //      winner = "It's a tie"
+    //  }else if (playerSelection === "Rock" && computerChoice === "Paper"){
+    //     winner = "Paper beats Rock!";
+    //  } else if (playerSelection === "Rock" && computerChoice === "Scissors"){
+    //     winner = "Rock beats Scissors!";
+    //  }else{
+    //     return "Invalid";
+    //  };
+
+    // switch (winner){
+    //     case 0:
+    //         (saveSelection === "Rock" && computerChoice === "Rock")
+    //         return"It's a tie";
+    //      break;
+    //      case 1:
+    //          ( saveSelection === "Rock" && computerChoice === "Paper")
+    //          return "Paper beats Rock!";
+    //      break;
+    //      case 2:
+    //          (saveSelection === "Rock" && computerChoice === "Scissors")
+    //          return "Rock beats Scissors!";
+    //      break;
+    //      default:
+    //          console.log("Add valid value");
+ 
+    // }
+    // console.log(winner)
