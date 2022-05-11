@@ -1,12 +1,15 @@
-let playerChoice = prompt("Are you: Rock, Paper or Scissors?");//ask player choice
+let playerChoice = prompt("Are you: Rock, Paper or Scissors?").toLowerCase();//ask player choice
 
 let choice = ["Rock","Paper","Scissors"];//Give the computer options to decide
 
+let userScore=0;
+let aiScore=0;
 
-if (playerChoice === "Rock"|| playerChoice === "Paper"|| playerChoice === "Scissors"){
+
+if (playerChoice === "rock"|| playerChoice === "paper"|| playerChoice === "scissors"){
     console.log(`You have chosen ${playerChoice}`);
 }else{
-    console.log("Write valid value")
+    console.log(`${playerChoice} is not a valid value`)
 };
 
 function computerPlay(){                //Computer turn
@@ -18,58 +21,66 @@ function computerPlay(){                //Computer turn
 
 function playRound(playerSelection, computerSelection){
     computerSelection = computerPlay();
-    let computerChoice = computerSelection
-    console.log(computerChoice);
+    console.log(`The AI chose: ${computerSelection}`);
     playerSelection = playerChoice;
-    let playerPoints = 0;
-    let computerPoints = 0; 
-      
-    if(playerSelection === "Rock" && computerChoice === choice[0] || playerSelection == "Paper" && computerChoice == choice[1]||playerSelection == "Scissors" && computerChoice == choice[2] ){
+     
+    if(playerSelection === "rock" && computerSelection === choice[0] || playerSelection === "paper" && computerSelection === choice[1]||playerSelection === "scissors" && computerSelection == choice[2] ){
         return "It's a tie";
         
 
-    }else if (computerChoice === choice[1] && playerSelection === "Rock"  ) {
-        console.log("Paper beats Rock");
-        computerPoints++;
+    }else if (computerSelection === choice[1] && playerSelection === "rock"  ) {
+        console.log (`AI chose ${computerSelection}. He Won!`);
+        return aiScore++;
 
-    }else if (playerSelection === "Paper" && computerChoice === choice[0]) {
-            console.log("Paper beats Rock");
-            playerPoints++;
+    }else if (playerSelection === "paper" && computerSelection === choice[0]) {
+        console.log (`"You chose ${playerSelection}. You won"`);
+        return userScore++;
 
-    }else if (playerSelection === "Rock" && computerChoice === choice[2]){
-        console.log("Rock beats Scissors");
-        playerPoints++;
+    }else if (playerSelection === "rock" && computerSelection === choice[2]){
+        console.log (`"You chose ${playerSelection}. You won"`);
+        return userScore++;
 
-    }else if (computerChoice === choice[0] && playerSelection === "Scissors"  ){
-            console.log("Rock beats Scissors");
-            computerPoints++;
+    }else if (computerSelection === choice[0] && playerSelection === "scissors"  ){
+        console.log (`AI chose ${computerSelection}. He Won!`);
+        return aiScore++;
 
-    }else if (playerSelection === "Scissors" && computerChoice === choice[1]) {
-         console.log("Scissors beats paper");
-         playerPoints++;
+    }else if (playerSelection === "scissors" && computerSelection === choice[1]) {
+        console.log (`"You chose ${playerSelection}. You won"`);
+        return userScore++;
 
-    }else if(computerChoice === choice[2] && playerSelection === "Paper" ){
-        console.log("Scissors beats Paper");
-        computerPoints++;
+    }else if(computerSelection === choice[2] && playerSelection === "paper" ){
+        console.log (`AI chose ${computerSelection}. He Won!`);
+        return aiScore++;
 
-    }else if(playerSelection === "Paper" && computerChoice === choice[2]){
-        console.log("Scissors beats Paper");
-        playerPoints++;
+    }else if(playerSelection === "paper" && computerSelection === choice[2]){
+        console.log (`"You chose ${playerSelection}. You won"`);
+        return userScore++;
 
     }else{
     
-        console.log("Try again");
-    }
-     
-    console.log(playerPoints);  
-    console.log(computerPoints);    
-    
-    };
-         
-            
-
-
+        return "Try again";
+    }   
+};
+  
+function game(result){
+    result = playRound();
    
-
+    for(let i =0; i<5;i++){
+        
+            if (userScore < 5 || aiScore < 5) {
+            console.log(`You have ${userScore} and AI has ${aiScore} points`)
+            return userScore
+                     
+        }else if(userScore == 5){
+            console.log(`Congragulation you scored ${userScore}!`);
+        }else(aiScore == 5)
+            console.log(`AI you scored ${aiScore}!`);
+        }
+        return {userScore ,aiScore}
+        
+    };
+  
     
-console.log(playRound());
+//playRound()
+//console.log(playRound());
+console.log(game());
